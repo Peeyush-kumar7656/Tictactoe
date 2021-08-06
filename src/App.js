@@ -1,6 +1,5 @@
 import './App.css';
 import Board from './Components/Board';
-
 function App() {
   return (
     <div>
@@ -9,5 +8,8 @@ function App() {
     </div>
   );
 }
-
 export default App;
+
+
+//Github:-"https://github.com/Peeyush-kumar7656/Tictactoe"
+//Heroku:-"https://tictactoe-peeyush.herokuapp.com/"

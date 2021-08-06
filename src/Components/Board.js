@@ -8,7 +8,7 @@ const Board = () => {
     if(winner){
         status='Winner:'+winner;
     }else{
-        status='Player turn :'+(X ?'X':'0');
+        status='Player turn :'+(X ?'X':'O');
     }
     const renderSquare=(i)=>{
         return(
@@ -18,7 +18,7 @@ const Board = () => {
     const handleClick=(i)=>{
         const squares=square.slice();
         if(squares[i]===null){
-        squares[i]= X ? 'X':'0';
+        squares[i]= X ? 'X':'O';
         setSquare(squares);
         setX(!X);
         }else{
@@ -54,14 +54,14 @@ const Board = () => {
                {renderSquare(2)}
             </div>
             <div className="board-row">
-            {renderSquare(3)}
-            {renderSquare(4)}
-            {renderSquare(5)}
+               {renderSquare(3)}
+               {renderSquare(4)}
+               {renderSquare(5)}
             </div>
             <div className="board-row">
-            {renderSquare(6)}
-            {renderSquare(7)}
-            {renderSquare(8)}
+               {renderSquare(6)}
+               {renderSquare(7)}
+               {renderSquare(8)}
             </div>
             {status}
         </div>
