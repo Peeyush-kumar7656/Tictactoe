@@ -35,4 +35,11 @@ body {
   text-shadow: 2px 2px 4px #bbb;
 }
 
-
+.restart{
+  height:50px;
+  width:120px;
+  border-radius: 18px;
+  border: 2px sandybrown;
+  color:white;
+  background-color: green;
+}

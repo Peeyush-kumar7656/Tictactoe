@@ -15,6 +15,14 @@ const Board = () => {
             <Square value={square[i]} onClick={()=>handleClick(i)} />
         )
     }
+    function Restart({ onClick }) {
+
+        return (
+          <button className="restart" onClick={onClick}>
+            Play again
+          </button>
+        );
+      }
     const handleClick=(i)=>{
         const squares=square.slice();
         if(squares[i]===null){
@@ -46,6 +54,15 @@ const Board = () => {
     }
     return null;
     }
+    function renderRestartButton() {
+        return (
+          <Restart
+            onClick={() => {
+              setSquare(Array(9).fill(null));
+            }}
+          />
+        );
+      }
     return (
         <div className="board">
             <div className="board-row">
@@ -64,6 +81,7 @@ const Board = () => {
                {renderSquare(8)}
             </div>
             {status}
+            <div className="restart-button">{renderRestartButton()}</div>
         </div>
     )
 }
