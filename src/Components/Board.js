@@ -6,11 +6,15 @@ const Board = () => {
     const winner=calculateWinner(square);
     let status;
     if(winner){
-        status='Winner:'+winner;
-    }else{
-        status='Player turn :'+(X ?'X':'O');
+        status = 'Winner: ' + winner;
+    if (status === "Winner: DRAW") {
+        status = "DRAW";
+      }
     }
-    const renderSquare=(i)=>{
+    else {
+        status = 'Player turn: ' + (X ? 'X' : 'O');
+    }
+    const squareRender=(i)=>{
         return(
             <Square value={square[i]} onClick={()=>handleClick(i)} />
         )
@@ -51,8 +55,13 @@ const Board = () => {
           if(square[a] && square[a]===square[b] && square[a]===square[c]){
             return square[a];
       }
-    }
-    return null;
+}
+    for(let j = 0; j < square.length; j++) {
+        if (square[j] == null) {
+          return null;
+        }
+     }
+     return "DRAW";
     }
     function renderRestartButton() {
         return (
@@ -66,24 +75,23 @@ const Board = () => {
     return (
         <div className="board">
             <div className="board-row">
-               {renderSquare(0)}
-               {renderSquare(1)}
-               {renderSquare(2)}
+               {squareRender(0)}
+               {squareRender(1)}
+               {squareRender(2)}
             </div>
             <div className="board-row">
-               {renderSquare(3)}
-               {renderSquare(4)}
-               {renderSquare(5)}
+               {squareRender(3)}
+               {squareRender(4)}
+               {squareRender(5)}
             </div>
             <div className="board-row">
-               {renderSquare(6)}
-               {renderSquare(7)}
-               {renderSquare(8)}
+               {squareRender(6)}
+               {squareRender(7)}
+               {squareRender(8)}
             </div>
             {status}
             <div className="restart-button">{renderRestartButton()}</div>
         </div>
     )
 }
-
 export default Board
